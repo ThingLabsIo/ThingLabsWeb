@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<ul>
+    @foreach (var device in ViewBag.Devices)
+    {
+    <li>@Html.ActionLink("Device -> ", "Details", new { id = @device.Id }) @device.Id</li>}
+</ul>
+
+<ul id="messagesList"></ul>
+
+<script>
+    $(function () {
+        getWeatherRecords("");
+    });
+</script>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/bundles/app")
+}

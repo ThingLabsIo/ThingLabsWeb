@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+@ViewBag.device.Id <br />
+@ViewBag.device.Status.ToString() <br />
+@ViewBag.device.Authentication.SymmetricKey.PrimaryKey.ToString()
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js" charset="utf-8"></script>
+<script>
+    $(function () {
+        getWeatherRecords("/" + "@ViewBag.device.Id.ToString()");
+    });
+</script>
+<canvas id="myChart" height="400"></canvas>
+
+<ul id="messagesList"></ul>
+@section Scripts{
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/bundles/app")
+}
+
